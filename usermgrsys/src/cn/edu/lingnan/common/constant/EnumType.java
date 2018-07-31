@@ -4,7 +4,7 @@ package cn.edu.lingnan.common.constant;
  * @author LiQi
  *
  */
-public class enumType {
+public class EnumType {
 	/**
 	 * 定义一个userDao常量
 	 */

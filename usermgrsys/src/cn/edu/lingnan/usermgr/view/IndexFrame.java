@@ -8,14 +8,16 @@ package cn.edu.lingnan.usermgr.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Date;
 
+import cn.edu.lingnan.common.util.TypeUtil;
 import cn.edu.lingnan.usermgr.controller.UserController;
-import cn.edu.lingnan.usermgr.domain.userDto;
+import cn.edu.lingnan.usermgr.domain.UserDto;
 
 public class IndexFrame implements BaseFrame{
 	
 	/**
-	 * 登录页面
+	 * 系统首页面
 	 */
 	@Override
 	public void show() {
@@ -55,11 +57,14 @@ public class IndexFrame implements BaseFrame{
 				System.exit(0);
 			default:
 				System.out.println("输入错误，请重新输入...");
+				break;
 			}
-			break;
 		}
 	
 	}
+	/**
+	 * 用户登录页面
+	 */
 	public void loginShow() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("--------用户登录界面--------");
@@ -70,16 +75,16 @@ public class IndexFrame implements BaseFrame{
 			System.out.println("请输入您的密码：");
 			String password = br.readLine();
 			UserController controller = new UserController();
-			userDto dto = controller.doLogin(sname, password);
+			UserDto dto = controller.doLogin(sname, password);
 			if (dto != null) {
 				System.out.println("登录成功....");
 				System.out.println("-----------------------");
 				if ("管理员".equals(dto.getPower())) {
-					AdminFrame adminFrame = new AdminFrame();
-					adminFrame.show(dto);
+					AdminFrame adminFrame = new AdminFrame(dto);
+					adminFrame.show();
 				}else {
-					NormalFrame frame = new NormalFrame();
-					frame.show(dto);
+					NormalFrame frame = new NormalFrame(dto);
+					frame.show();
 				}
 				break;
 			}
@@ -94,9 +99,40 @@ public class IndexFrame implements BaseFrame{
 		}
 		}
 	}
+	
+	/**
+	 * 用户注册页面
+	 */
 	@Override
 	public void addShow() {
-		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		boolean flag = false;
+		System.out.println("------用户注册页面------");
+		System.out.println("请输入用户名：");
+		try {
+			String sname = br.readLine();
+			System.out.println("请输入密码：");
+			String password = br.readLine();
+			System.out.println("请输入性别：");
+			String gender = br.readLine();
+			System.out.println("请输入年龄：");
+			int age = Integer.parseInt(br.readLine());
+			System.out.println("请输入联系方式：");
+			String phone = br.readLine();
+			System.out.println("请输入出生日期：");
+			Date birth = TypeUtil.strToDate(br.readLine());
+			UserDto dto = new UserDto(sname, password, gender, age, phone, birth);
+			UserController controller = new UserController();
+			flag = controller.doAdd(dto);
+			if (flag) {
+				System.out.println("注册成功，请登录....");
+			}else {
+				System.out.println("注册失败....");
+			}
+		} catch (IOException e) {
+			System.out.println("输入不正确，注册失败...");
+			e.printStackTrace();
+		}
 		
 	}
 
