@@ -46,8 +46,11 @@ public class UserServiceImp implements UserService{
 		try {
 			connection = DBUtil.getconnection();
 			UserDao dao = (UserDao) DaoFactory.getDao(connection, EnumType.User_Dao);
+			DBUtil.beginTransaction(connection);
 			dto = dao.login(sname, password);
+			DBUtil.commit(connection);
 		} catch (Exception e) {
+			DBUtil.rollback(connection);
 			throw new ServiceException("登录失败......", e);
 		}finally {
 			DBUtil.closeConnection(connection);
@@ -66,8 +69,11 @@ public class UserServiceImp implements UserService{
 		try {
 			connection = DBUtil.getconnection();
 			UserDao dao = (UserDao)DaoFactory.getDao(connection, EnumType.User_Dao);
+			DBUtil.beginTransaction(connection);
 			flag = dao.addUser(dto);
+			DBUtil.commit(connection);
 		} catch (Exception e) {
+			DBUtil.rollback(connection);
 			e.printStackTrace();
 		}finally {
 			DBUtil.closeConnection(connection);
@@ -86,8 +92,11 @@ public class UserServiceImp implements UserService{
 		try {
 			connection = DBUtil.getconnection();
 			UserDao dao = (UserDao) DaoFactory.getDao(connection, EnumType.User_Dao);
+			DBUtil.beginTransaction(connection);
 			dtos = dao.findAllUser();
+			DBUtil.commit(connection);
 		} catch (Exception e) {
+			DBUtil.rollback(connection);
 			e.printStackTrace();
 		}
 		return dtos;
@@ -104,8 +113,11 @@ public class UserServiceImp implements UserService{
 		try {
 			connection = DBUtil.getconnection();
 			UserDao dao = (UserDao) DaoFactory.getDao(connection, EnumType.User_Dao);
+			DBUtil.beginTransaction(connection);
 			dto = dao.findByID(sid);
+			DBUtil.commit(connection);
 		} catch (Exception e) {
+			DBUtil.rollback(connection);
 			e.printStackTrace();
 		}finally {
 			DBUtil.closeConnection(connection);
@@ -124,8 +136,11 @@ public class UserServiceImp implements UserService{
 		try {
 			connection = DBUtil.getconnection();
 			UserDao dao = (UserDao) DaoFactory.getDao(connection, EnumType.User_Dao);
+			DBUtil.beginTransaction(connection);
 			dto = dao.findByName(sname);
+			DBUtil.commit(connection);
 		} catch (Exception e) {
+			DBUtil.rollback(connection);
 			e.printStackTrace();
 		}finally {
 			DBUtil.closeConnection(connection);
@@ -144,11 +159,14 @@ public class UserServiceImp implements UserService{
 		try {
 			connection = DBUtil.getconnection();
 			UserDao dao = (UserDao) DaoFactory.getDao(connection, EnumType.User_Dao);
+			DBUtil.beginTransaction(connection);
 			flag = dao.updateUser(dto);
 			if (flag) {
 				flag = true;
 			}
+			DBUtil.commit(connection);
 		} catch (Exception e) {
+			DBUtil.rollback(connection);
 			e.printStackTrace();
 		} finally {
 			DBUtil.closeConnection(connection);
@@ -167,11 +185,14 @@ public class UserServiceImp implements UserService{
 		try {
 			connection = DBUtil.getconnection();
 			UserDao dao = (UserDao) DaoFactory.getDao(connection, EnumType.User_Dao);
+			DBUtil.beginTransaction(connection);
 			flag = dao.delUser(sid);
 			if (flag) {
 				flag = true;
 			}
+			DBUtil.commit(connection);
 		} catch (Exception e) {
+			DBUtil.rollback(connection);
 			e.printStackTrace();
 		}finally {
 			DBUtil.closeConnection(connection);

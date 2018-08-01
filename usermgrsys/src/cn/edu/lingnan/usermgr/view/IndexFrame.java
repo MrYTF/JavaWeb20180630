@@ -135,13 +135,11 @@ public class IndexFrame implements BaseFrame{
 		}
 		
 	}
-
 	@Override
 	public void searchShow() {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void updateShow() {
 		// TODO Auto-generated method stub

@@ -3,9 +3,11 @@ package cn.edu.lingnan.usermgr.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Date;
 
+import cn.edu.lingnan.common.util.TypeUtil;
+import cn.edu.lingnan.usermgr.controller.UserController;
 import cn.edu.lingnan.usermgr.domain.UserDto;
-import oracle.net.aso.i;
 /**
  * 普通用户页面
  * @author LiQi
@@ -64,12 +66,47 @@ public class NormalFrame extends IndexFrame{
 	 * 查询个人信息
 	 */
 	public void searchShow() {
-		
+		UserController controller = new UserController();
+		dto = controller.doFindByID(dto.getSid());
+		dto.print();
 	}
 	/**
 	 * 修改个人信息
 	 */
 	public void updateShow() {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		boolean flag = false;
+		while(true) {
+			try {
+				int sid = dto.getSid();
+				System.out.println("请输入新的用户名：");
+				String sname = br.readLine();
+				System.out.println("请输入新密码：");
+				String password = br.readLine();
+				System.out.println("请输入新性别：");
+				String gender = br.readLine();
+				System.out.println("请输入新年龄：");
+				int age = Integer.parseInt(br.readLine());
+				System.out.println("请输入新联系方式：");
+				String phone = br.readLine();
+				System.out.println("请输入新出生日期：");
+				Date birth = TypeUtil.strToDate(br.readLine());
+				UserController controller = new UserController();
+				UserDto dto = new UserDto(sid, sname, password, gender, age, phone, birth); 
+				flag = controller.doUpdate(dto);
+				if (flag) {
+					System.out.println("修改成功...");
+				}else {
+					System.out.println("修改失败...");
+				}
+				break;
+			} catch (IOException e) {
+				System.out.println("输入不正确，请重新输入...");
+				System.out.println("---------------------");
+				//e.printStackTrace();
+			}
+			
+		}
 		
 	}
 }

@@ -85,7 +85,7 @@ public class UserDaoImp implements UserDao{
 				flag = true;
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new DaoException("输入不正确，请重新输入...",e);
 		}finally {
 			DBUtil.closeStatement(null, preparedStatement);
 		}
@@ -154,7 +154,7 @@ public class UserDaoImp implements UserDao{
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new DaoException("输入不正确，请重新输入...",e);
 		}finally {
 			DBUtil.closeStatement(resultSet, preparedStatement);
 		}
@@ -189,7 +189,7 @@ public class UserDaoImp implements UserDao{
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new DaoException("输入不正确，请重新输入...",e);
 		}finally {
 			DBUtil.closeStatement(resultSet, preparedStatement);
 		}
@@ -220,7 +220,7 @@ public class UserDaoImp implements UserDao{
 				
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new DaoException("输入不正确，请重新输入...",e);
 		}finally {
 			DBUtil.closeStatement(null, preparedStatement);
 		}
@@ -240,7 +240,7 @@ public class UserDaoImp implements UserDao{
 		try {
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, sid);
-			statement.executeUpdate();
+			num = statement.executeUpdate();
 			if (num>0) {
 				flag = true;
 			}

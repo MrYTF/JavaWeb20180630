@@ -114,4 +114,11 @@ public class UserDto {
 		return "userDto [sid=" + sid + ", sname=" + sname + ", password=" + password + ", gender=" + gender + ", age="
 				+ age + ", phone=" + phone + ", birth=" + birth + ", power=" + power + ", status=" + status + "]";
 	}
+	
+	/**
+	 * 打印用户信息
+	 */
+	public void print() {
+		System.out.println("用户ID："+sid+"\t用户名："+sname+"\t密码："+password+"\t性别："+gender+"\t年龄："+age+"\t联系方式："+phone+"\t出生日期："+birth+"\t权限："+power);
+	}
 }
