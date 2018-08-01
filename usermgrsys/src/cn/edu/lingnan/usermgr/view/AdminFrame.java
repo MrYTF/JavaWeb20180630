@@ -27,7 +27,7 @@ public class AdminFrame extends NormalFrame{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int i = -1;
 		while(true) {
-			System.out.println("-------欢迎进入管理员页面-------");
+			System.out.println("-------欢迎进入管理员页面------");
 			System.out.println(dto.getSname()+"您好！	您的权限是："+dto.getPower());
 			System.out.println("------------------------");
 			System.out.println("........查询用户-->1.......");
@@ -76,12 +76,12 @@ public class AdminFrame extends NormalFrame{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int i = -1;
 		while(i != 4) {
-			System.out.println("------欢迎进入查询页面-------");
-			System.out.println("查询所有用户--------------1");
-			System.out.println("根据ID查询--------------2");
-			System.out.println("根据姓名查询--------------3");
-			System.out.println("退出查询----------------4");
-			System.out.println("----------------------");
+			System.out.println("-------欢迎进入查询页面-------");
+			System.out.println("......查询所有用户-->1......");
+			System.out.println("......根据ID查询--->2......");
+			System.out.println("......根据姓名查询--->3.....");
+			System.out.println("......退出查询------>4.....");
+			System.out.println("------------------------");
 			System.out.println("请输入：");
 			while(true) {
 				try {
@@ -115,7 +115,7 @@ public class AdminFrame extends NormalFrame{
 	 * 查询所有用户
 	 */
 	private void showAllUser() {
-		System.out.println("-------查询所有用户-------");
+		System.out.println("---------查询所有用户--------");
 		try {
 			UserController controller = new UserController();
 			Vector<UserDto> dtos = new Vector<UserDto>();
@@ -134,7 +134,7 @@ public class AdminFrame extends NormalFrame{
 	 */
 	private void showByID() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("-------根据用户ID查询-------");
+		System.out.println("--------根据用户ID查询-------");
 		while(true) {
 			System.out.println("请输入用户ID：");
 			try {
@@ -146,7 +146,7 @@ public class AdminFrame extends NormalFrame{
 				break;
 			} catch (Exception e) {
 				System.out.println("输入不正确，请重新输入...");
-				System.out.println("---------------------");
+				System.out.println("------------------------");
 				//e.printStackTrace();
 			}
 		}
@@ -159,7 +159,7 @@ public class AdminFrame extends NormalFrame{
 	 */
 	private void showByName() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("-------根据用户名查询-------");
+		System.out.println("--------根据用户名查询--------");
 		while(true) {
 			System.out.println("请输入用户名：");
 			try {
@@ -170,7 +170,7 @@ public class AdminFrame extends NormalFrame{
 				break;
 			} catch (Exception e) {
 				System.out.println("输入不正确，请重新输入...");
-				System.out.println("---------------------");
+				System.out.println("------------------------");
 				//e.printStackTrace();
 			}
 		}
@@ -183,7 +183,7 @@ public class AdminFrame extends NormalFrame{
 	public void updateShow() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		boolean flag = false;
-		System.out.println("------欢迎进入修改页面------");
+		System.out.println("-------欢迎进入修改页面-------");
 		while(true) {
 			System.out.println("请输入需要修改的用户ID：");
 			try {
@@ -211,7 +211,7 @@ public class AdminFrame extends NormalFrame{
 				break;
 			} catch (Exception e) {
 				System.out.println("输入不正确，请重新输入...");
-				System.out.println("---------------------");
+				System.out.println("------------------------");
 				//e.printStackTrace();
 			}	
 		}	
@@ -223,7 +223,7 @@ public class AdminFrame extends NormalFrame{
 	public void addShow() {
 		boolean flag = false;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("------欢迎进入添加页面------");
+		System.out.println("-------欢迎进入添加页面-------");
 		while(true) {
 			System.out.println("请输入用户名：");
 			try {
@@ -249,7 +249,7 @@ public class AdminFrame extends NormalFrame{
 				break;
 			} catch (Exception e) {
 				System.out.println("输入不正确，请重新输入...");
-				System.out.println("---------------------");
+				System.out.println("------------------------");
 			}
 		}
 	}
@@ -260,7 +260,7 @@ public class AdminFrame extends NormalFrame{
 	public void deletShow() {
 		boolean flag = false;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("------欢迎进入删除页面------");
+		System.out.println("-------欢迎进入删除页面-------");
 		while(true) {
 			System.out.println("请输入需要删除的用户ID：");
 			try {
@@ -275,7 +275,7 @@ public class AdminFrame extends NormalFrame{
 				break;
 			} catch (Exception e) {
 				System.out.println("输入不正确，请重新输入...");
-				System.out.println("---------------------");
+				System.out.println("------------------------");
 			}
 		}
 	}

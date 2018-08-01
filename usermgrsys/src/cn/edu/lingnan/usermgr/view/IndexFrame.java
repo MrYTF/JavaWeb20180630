@@ -27,9 +27,11 @@ public class IndexFrame implements BaseFrame{
 		while(true) {
 			//用户登录和注册页面
 			System.out.println("-------欢迎使用用户管理系统-----");
-			System.out.println(".........登录-->1.........");
-			System.out.println(".........注册-->2.........");
-			System.out.println(".........退出-->3.........");
+			System.out.println();
+			System.out.println("登录--------------------1");
+			System.out.println("注册--------------------2");
+			System.out.println("退出--------------------3");
+			System.out.println();
 			System.out.println("------------------------");
 			System.out.println("请输入：");
 			
@@ -53,7 +55,7 @@ public class IndexFrame implements BaseFrame{
 				this.addShow();
 				break;
 			case 3:
-				System.out.println("感谢您的使用....");
+				System.out.println("感谢您的使用，回见....");
 				System.exit(0);
 			default:
 				System.out.println("输入错误，请重新输入...");
@@ -67,7 +69,7 @@ public class IndexFrame implements BaseFrame{
 	 */
 	public void loginShow() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("--------用户登录界面--------");
+		System.out.println("--------用户登录界面---------");
 		while(true) {
 		System.out.println("请输入您的用户名：");
 		try {
@@ -78,7 +80,8 @@ public class IndexFrame implements BaseFrame{
 			UserDto dto = controller.doLogin(sname, password);
 			if (dto != null) {
 				System.out.println("登录成功....");
-				System.out.println("-----------------------");
+				System.out.println("------------------------");
+				System.out.println();
 				if ("管理员".equals(dto.getPower())) {
 					AdminFrame adminFrame = new AdminFrame(dto);
 					adminFrame.show();
@@ -91,7 +94,7 @@ public class IndexFrame implements BaseFrame{
 			else {
 				System.out.println("登录失败....");
 				System.out.println("用户名或密码错误...");
-				System.out.println("-----------------------");
+				System.out.println("------------------------");
 			}
 		} catch (IOException e) {
 			System.out.println("输入不正确，请重新输入....");
@@ -107,7 +110,7 @@ public class IndexFrame implements BaseFrame{
 	public void addShow() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		boolean flag = false;
-		System.out.println("------用户注册页面------");
+		System.out.println("---------用户注册页面--------");
 		System.out.println("请输入用户名：");
 		try {
 			String sname = br.readLine();

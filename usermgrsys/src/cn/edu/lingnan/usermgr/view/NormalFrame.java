@@ -29,13 +29,13 @@ public class NormalFrame extends IndexFrame{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int i = -1;
 		while(true){
-			System.out.println("-------欢迎进入普通用户页面-------");
+			System.out.println("------欢迎进入普通用户页面------");
 			System.out.println(dto.getSname()+"您好！	您的权限是："+dto.getPower());
-			System.out.println("-------------------------");
-			System.out.println(".......查询个人信息-->1.......");
-			System.out.println(".......修改个人信息-->2.......");
-			System.out.println(".......退出登录---->3.......");
-			System.out.println("-------------------------");
+			System.out.println("------------------------");
+			System.out.println(".......查询个人信息-->1......");
+			System.out.println(".......修改个人信息-->2......");
+			System.out.println(".......退出登录---->3......");
+			System.out.println("------------------------");
 			System.out.println("请输入：");
 			while(true) {
 				try {
@@ -58,6 +58,7 @@ public class NormalFrame extends IndexFrame{
 				System.exit(0);
 			default:
 				System.out.println("输入错误，请重新输入....");
+				System.out.println("------------------------");
 				break;
 			}
 		}
@@ -102,7 +103,7 @@ public class NormalFrame extends IndexFrame{
 				break;
 			} catch (IOException e) {
 				System.out.println("输入不正确，请重新输入...");
-				System.out.println("---------------------");
+				System.out.println("------------------------");
 				//e.printStackTrace();
 			}
 			
