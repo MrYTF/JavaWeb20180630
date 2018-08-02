@@ -5,7 +5,11 @@ import java.util.Date;
 import org.junit.Test;
 
 import cn.edu.lingnan.common.util.TypeUtil;
-
+/**
+ * 类型转换、检查、判断测试类
+ * @author LiQi
+ *
+ */
 public class TypeUtilTest {
 	/**
 	 * 字符转日期测试

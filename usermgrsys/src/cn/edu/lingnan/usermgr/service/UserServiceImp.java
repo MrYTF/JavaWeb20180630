@@ -16,16 +16,19 @@ import cn.edu.lingnan.usermgr.domain.UserDto;
  *
  */
 public class UserServiceImp implements UserService{
+	
 	/**
 	 * 在类内部创建唯一实例
 	 */
 	private static UserService userService = new UserServiceImp();
+	
 	/**
 	 * 构造方法私有化
 	 */
 	private UserServiceImp() {
 		
 	}
+	
 	/**
 	 * 获得用户service实例
 	 * 提供对外访问的方法
@@ -34,6 +37,7 @@ public class UserServiceImp implements UserService{
 	public static UserService getInstance() {
 		return userService;
 	}
+	
 	/**
 	 * 用户登录
 	 * @param sname 用户名
@@ -84,7 +88,7 @@ public class UserServiceImp implements UserService{
 	
 	/**
 	 * 查询所有用户
-	 * @return
+	 * @return 返回查询到的所有用户信息
 	 */
 	public Vector<UserDto> findAllUser() {
 		Vector<UserDto> dtos = new Vector<UserDto>();
@@ -161,9 +165,6 @@ public class UserServiceImp implements UserService{
 			UserDao dao = (UserDao) DaoFactory.getDao(connection, EnumType.User_Dao);
 			DBUtil.beginTransaction(connection);
 			flag = dao.updateUser(dto);
-			if (flag) {
-				flag = true;
-			}
 			DBUtil.commit(connection);
 		} catch (Exception e) {
 			DBUtil.rollback(connection);

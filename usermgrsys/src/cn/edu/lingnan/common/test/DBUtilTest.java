@@ -5,7 +5,11 @@ import java.sql.Connection;
 import org.junit.Test;
 
 import cn.edu.lingnan.common.util.DBUtil;
-
+/**
+ * 数据库连接测试类
+ * @author LiQi
+ *
+ */
 public class DBUtilTest {
 	/**
 	 * 数据库连接测试

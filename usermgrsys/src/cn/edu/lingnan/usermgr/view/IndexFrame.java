@@ -13,7 +13,11 @@ import java.util.Date;
 import cn.edu.lingnan.common.util.TypeUtil;
 import cn.edu.lingnan.usermgr.controller.UserController;
 import cn.edu.lingnan.usermgr.domain.UserDto;
-
+/**
+ * 主视图层
+ * @author LiQi
+ *
+ */
 public class IndexFrame implements BaseFrame{
 	
 	/**
@@ -64,6 +68,7 @@ public class IndexFrame implements BaseFrame{
 		}
 	
 	}
+	
 	/**
 	 * 用户登录页面
 	 */
@@ -138,11 +143,19 @@ public class IndexFrame implements BaseFrame{
 		}
 		
 	}
+	
+	/**
+	 * 父类方法
+	 */
 	@Override
 	public void searchShow() {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	/**
+	 * 父类方法
+	 */
 	@Override
 	public void updateShow() {
 		// TODO Auto-generated method stub

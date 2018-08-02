@@ -30,6 +30,9 @@ public class UserDaoImp implements UserDao{
 
 	/**
 	 * 用户登录
+	 * @param sname 用户姓名
+	 * @param password 用户密码
+	 * @return 返回信息匹配的用户所有信息
 	 */
 	public UserDto login(String sname,String password) {
 		ResultSet resultSet = null;
@@ -64,6 +67,8 @@ public class UserDaoImp implements UserDao{
 	
 	/**
 	 * 用户注册/添加用户
+	 * @param dto 用户信息
+	 * @return 返回是否添加成功
 	 */
 	public boolean addUser(UserDto dto) {
 		boolean flag = false;
@@ -94,7 +99,7 @@ public class UserDaoImp implements UserDao{
 	
 	/**
 	 * 查询所有用户
-	 * @return 返回容器vector
+	 * @return 返回所有用户信息的集合
 	 */
 	public Vector<UserDto> findAllUser() {
 		Vector<UserDto> dtos = null;
@@ -198,6 +203,8 @@ public class UserDaoImp implements UserDao{
 	
 	/**
 	 * 修改用户
+	 * @param dto 用户信息
+	 * @return 返回是否修改成功
 	 */
 	public boolean updateUser(UserDto dto) {
 		boolean flag = false;
@@ -229,8 +236,8 @@ public class UserDaoImp implements UserDao{
 	
 	/**
 	 * 删除用户
-	 * @param sid
-	 * @return
+	 * @param sid 用户id
+	 * @return 返回是否删除成功
 	 */
 	public boolean delUser(int sid){
 		boolean flag = false;

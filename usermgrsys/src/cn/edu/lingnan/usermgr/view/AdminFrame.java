@@ -16,10 +16,14 @@ import cn.edu.lingnan.usermgr.domain.UserDto;
  */
 public class AdminFrame extends NormalFrame{
 	
+	/**
+	 * 构造器
+	 * @param dto 传递用户信息
+	 */
 	public AdminFrame(UserDto dto) {
 		super(dto);
-		// TODO Auto-generated constructor stub
 	}
+	
 	/**
 	 * 登录成功主页面
 	 */
@@ -60,7 +64,7 @@ public class AdminFrame extends NormalFrame{
 				this.deletShow();
 				break;
 			case 5:
-				System.out.println("感谢您的使用....");
+				System.out.println("感谢您的使用，再见....");
 				System.exit(0);
 			default:
 				System.out.println("输入错误，请重新输入....");
@@ -140,7 +144,7 @@ public class AdminFrame extends NormalFrame{
 			try {
 				int sid = Integer.parseInt(br.readLine());
 				UserController controller = new UserController();
-				dto = controller.doFindByID(sid);
+				UserDto dto = controller.doFindByID(sid);
 				dto.print();
 				//System.out.println(dto.getSid()+"\t"+dto.getSname()+"\t"+dto.getPassword()+"\t"+dto.getGender()+"\t"+dto.getAge()+"\t"+dto.getPhone()+"\t"+dto.getPower());
 				break;
@@ -165,7 +169,7 @@ public class AdminFrame extends NormalFrame{
 			try {
 				String sname = br.readLine();
 				UserController controller = new UserController();
-				dto = controller.doFindByName(sname);
+				UserDto dto = controller.doFindByName(sname);
 				dto.print();
 				break;
 			} catch (Exception e) {

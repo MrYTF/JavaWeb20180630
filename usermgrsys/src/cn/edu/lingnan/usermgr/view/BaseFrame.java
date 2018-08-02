@@ -9,14 +9,17 @@ public interface BaseFrame {
 	 * 首页页面显示
 	 */
 	public void show();
+	
 	/**
 	 * 添加页面显示
 	 */
 	public void addShow();
+	
 	/**
 	 * 搜索页面显示
 	 */
 	public void searchShow();
+	
 	/**
 	 * 更新页面显示
 	 */

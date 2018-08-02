@@ -2,7 +2,7 @@ package cn.edu.lingnan.usermgr.domain;
 
 import java.util.Date;
 /**
- * 用户信息类
+ * 用户信息实体类
  * @author LiQi
  *
  */
@@ -108,7 +108,8 @@ public class UserDto {
 	
 	public UserDto() {
 		super();
-	}		
+	}	
+	
 	@Override
 	public String toString() {
 		return "userDto [sid=" + sid + ", sname=" + sname + ", password=" + password + ", gender=" + gender + ", age="

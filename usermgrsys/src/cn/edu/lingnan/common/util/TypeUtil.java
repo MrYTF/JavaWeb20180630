@@ -13,8 +13,12 @@ import cn.edu.lingnan.common.exception.EmailException;
  *
  */
 public class TypeUtil {
+
+
 	/**
-	 * 字符串转日期
+	 * 字符转日期类型方法
+	 * @param string 字符串
+	 * @return 返回日期类型
 	 */
 	public static Date strToDate(String string) {
 		Date date = null;
@@ -27,8 +31,11 @@ public class TypeUtil {
 		}
 		return date;
 	}
+	
 	/**
 	 * 日期转字符串
+	 * @param date 日期
+	 * @return 返回字符串类型
 	 */
 	public static String dateToStr(Date date) {
 		String string = null;
@@ -41,8 +48,11 @@ public class TypeUtil {
 		}
 		return string;
 	}
+
 	/**
 	 * 检查邮箱格式
+	 * @param mail 邮箱
+	 * @return 返回检查结果
 	 */
 	public static boolean checkEmail(String mail) {
 		String string = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,3}$";
@@ -59,8 +69,11 @@ public class TypeUtil {
 			// TODO: handle exception
 		}
 	}
+	
 	/**
 	 * 判断字符串是否为空
+	 * @param string 字符串
+	 * @return 返回判断结果
 	 */
 	public static boolean isNull(String string) {
 		if (string != null && string != "") {

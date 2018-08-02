@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Date;
 
+import cn.edu.lingnan.common.exception.DaoException;
 import cn.edu.lingnan.common.util.TypeUtil;
 import cn.edu.lingnan.usermgr.controller.UserController;
 import cn.edu.lingnan.usermgr.domain.UserDto;
@@ -30,7 +31,7 @@ public class NormalFrame extends IndexFrame{
 		int i = -1;
 		while(true){
 			System.out.println("------欢迎进入普通用户页面------");
-			System.out.println(dto.getSname()+"您好！	您的权限是："+dto.getPower());
+			System.out.println(dto.getSname()+"您好！	您的权限是：普通用户");
 			System.out.println("------------------------");
 			System.out.println(".......查询个人信息-->1......");
 			System.out.println(".......修改个人信息-->2......");
@@ -63,6 +64,7 @@ public class NormalFrame extends IndexFrame{
 			}
 		}
 	}
+	
 	/**
 	 * 查询个人信息
 	 */
@@ -71,6 +73,7 @@ public class NormalFrame extends IndexFrame{
 		dto = controller.doFindByID(dto.getSid());
 		dto.print();
 	}
+	
 	/**
 	 * 修改个人信息
 	 */
@@ -93,7 +96,7 @@ public class NormalFrame extends IndexFrame{
 				System.out.println("请输入新出生日期：");
 				Date birth = TypeUtil.strToDate(br.readLine());
 				UserController controller = new UserController();
-				UserDto dto = new UserDto(sid, sname, password, gender, age, phone, birth); 
+				dto = new UserDto(sid, sname, password, gender, age, phone, birth);			
 				flag = controller.doUpdate(dto);
 				if (flag) {
 					System.out.println("修改成功...");

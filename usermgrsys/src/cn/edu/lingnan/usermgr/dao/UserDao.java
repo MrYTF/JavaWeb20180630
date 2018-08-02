@@ -10,6 +10,7 @@ import cn.edu.lingnan.usermgr.domain.UserDto;
  *
  */
 public interface UserDao extends BaseDao {
+	
 	/**
 	 * 用户登录
 	 * @param sname 用户姓名

@@ -12,7 +12,11 @@ import cn.edu.lingnan.common.util.TypeUtil;
 import cn.edu.lingnan.usermgr.dao.UserDao;
 import cn.edu.lingnan.usermgr.dao.UserDaoImp;
 import cn.edu.lingnan.usermgr.domain.UserDto;
-
+/**
+ * 用户dao测试类
+ * @author LiQi
+ *
+ */
 public class UserDaoTest {
 	/**
 	 * 用户登录

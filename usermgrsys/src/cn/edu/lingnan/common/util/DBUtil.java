@@ -14,6 +14,9 @@ import cn.edu.lingnan.common.exception.DaoException;
  *
  */
 public class DBUtil {
+	/**
+	 * 私有变量类
+	 */
 	private static String driver = "oracle.jdbc.driver.OracleDriver";
 	private static String url = "jdbc:oracle:thin:@localhost:1521:orcl";//orcl为数据库的SID
 	private static String username = "scott";
@@ -40,9 +43,10 @@ public class DBUtil {
 		
 		return connection;
 	}
+	
 	/**
 	 * 开始事务
-	 * @param connection
+	 * @param connection 数据库连接
 	 */
 	public static void beginTransaction(Connection connection) {
 		try {
@@ -53,8 +57,10 @@ public class DBUtil {
 			//e.printStackTrace();
 		}
 	}
+	
 	/**
 	 * 提交事务
+	 * @param connection 数据库连接
 	 */
 	public static void commit(Connection connection) {
 		try {
@@ -67,8 +73,10 @@ public class DBUtil {
 			//e.printStackTrace();
 		}
 	}
+	
 	/**
 	 * 回滚事务
+	 * @param connection 数据库连接
 	 */
 	public static void rollback(Connection connection) {
 		try {
@@ -81,9 +89,10 @@ public class DBUtil {
 			//e.printStackTrace();
 		}
 	}
+	
 	/**
-	 * 关闭数据库
-	 * @throws Exception
+	 * 关闭数据库连接
+	 * @param connection 数据库连接
 	 */
 	public static void closeConnection(Connection connection){
 		try {
@@ -98,10 +107,11 @@ public class DBUtil {
 //			e.printStackTrace();
 		}	
 	}
+	
 	/**
-	 * 关闭结果集对象、SQL语句对象
-	 * @param resultSet
-	 * @param statement
+	 * 关闭结果集对象、SQL语句预编译对象
+	 * @param resultSet 结果集对象
+	 * @param statement SQL语句预编译对象
 	 */
 	public static void closeStatement(ResultSet resultSet,PreparedStatement statement) {
 		try {
